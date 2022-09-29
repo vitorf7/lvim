@@ -3,7 +3,8 @@ if not status_ok then
   return
 end
 
-local capabilities = lvim.lsp.protocol.make_client_capabilities()
+local lvim_lsp = require "lvim.lsp"
+local capabilities = lvim_lsp.common_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 rayx_go_nvim.setup({
   goimport = "gopls",
