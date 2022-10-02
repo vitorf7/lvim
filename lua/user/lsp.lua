@@ -2,15 +2,36 @@ lvim.format_on_save = false
 lvim.lsp.diagnostics.virtual_text = true
 
 -- LSP Mappings
--- local lvim_lsp_n_mappings = require "lvim.lsp.config".buffer_mappings.normal_mode
--- lvim_lsp_n_mappings["<leader>rn"] = { vim.lsp.buf.rename, "Rename" }
--- lvim_lsp_n_mappings["gl"] = {
---   function()
---     vim.cmd[[lua require('telescope.builtin').lsp_implementations(require('telescope.themes').get_dropdown())<cr>]]
---   end,
---   "Goto Implementation",
--- }
+lvim.lsp.buffer_mappings.normal_mode = vim.tbl_extend("force", lvim.lsp.buffer_mappings.normal_mode, {
 
+  -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
+  ["gd"]  = {
+    function ()
+      vim.cmd[[Telescope lsp_definitions]]
+    end,
+    "Goto Definition",
+  },
+  ["gi"]  = {
+    function ()
+      vim.cmd[[Telescope lsp_implementations]]
+    end,
+    "Goto Implementation",
+  },
+  ["gr"]  = {
+    function ()
+      vim.cmd[[Telescope lsp_references]]
+    end,
+    "Goto References",
+  },
+  ["glr"]  = { vim.lsp.buf.references, "Goto references" },
+  ["gca"] = {
+    function ()
+      vim.cmd[[Telescope lsp_code_actions]]
+    end,
+    "LSP Code Actions",
+  },
+  ["<leader>rn"] = { vim.lsp.buf.rename, "LSP Rename" },
+})
 
 lvim.builtin.treesitter.highlight.enable = true
 lvim.builtin.treesitter.ensure_installed = {
