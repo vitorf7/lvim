@@ -1,7 +1,6 @@
 -- Additional Plugins
 lvim.plugins = {
   "EdenEast/nightfox.nvim",
-	"rcarriga/nvim-dap-ui",
 	"j-hui/fidget.nvim",
 	"kylechui/nvim-surround",
 	-- "christianchiarulli/harpoon",
