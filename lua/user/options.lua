@@ -11,6 +11,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
 vim.opt.showtabline = 0
 
+lvim.builtin.gitsigns.opts.current_line_blame = true
+lvim.builtin.gitsigns.opts.current_line_blame_opts.delay = 100
+lvim.builtin.gitsigns.opts.current_line_blame_formatter_opts.relative_time = true
+
 local options = {
   backup = false,                          -- creates a backup file
   clipboard = "unnamedplus",               -- allows neovim to access the system clipboard
@@ -50,9 +54,7 @@ local options = {
   sidescrolloff = 8,
   guifont = "monospace:h17",               -- the font used in graphical neovim applications
   title = true,
-  -- colorcolumn = "80",
-  -- colorcolumn = "120",
-
+  colorcolumn = "120,140",
 }
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1

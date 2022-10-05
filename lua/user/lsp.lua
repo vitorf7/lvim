@@ -46,6 +46,24 @@ lvim.builtin.treesitter.ensure_installed = {
 	"hcl",
 }
 
+-- language server in the table below will automatically be installed
+lvim.lsp.installer.setup.ensure_installed = {
+  "sumeko_lua",
+  "jsonls",
+  "html",
+  "yamlls",
+  "dockerls",
+  "bashls",
+  "bufls",
+  "gopls",
+  "golangci-lint-langserver",
+  "intelephense",
+  "phpactor",
+  "tflint",
+  "terraformls",
+  "marksman",
+}
+
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require("lvim.lsp.null-ls.formatters")
 formatters.setup({
@@ -59,9 +77,9 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{ command = "buf", filetypes = { "proto" } },
-	{ command = "phpcs", filetypes = { "php" } },
+	-- { command = "phpcs", filetypes = { "php" } },
 	{ command = "selene", filetypes = { "lua" } },
-	{ command = "luacheck", filetypes = { "lua" } },
+	-- { command = "luacheck", filetypes = { "lua" } },
 	{ command = "markdownlint", filetypes = { "markdown", "md" } },
 	{ command = "cfn_lint", filetypes = { "yaml", "json" } },
 })
@@ -75,3 +93,5 @@ lsp_manager.setup("bufls")
 lsp_manager.setup("terraform_lsp")
 lsp_manager.setup("terraformls")
 lsp_manager.setup("tflint")
+lsp_manager.setup("marksman")
+-- lsp_manager.setup("phpactor")
