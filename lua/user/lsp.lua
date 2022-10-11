@@ -42,6 +42,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"css",
 	"yaml",
 	"go",
+  "gomod",
 	"php",
 	"hcl",
 }
@@ -55,7 +56,6 @@ lvim.lsp.installer.setup.ensure_installed = {
   "dockerls",
   "bashls",
   "bufls",
-  "gopls",
   "golangci-lint-langserver",
   "intelephense",
   "phpactor",
@@ -71,6 +71,8 @@ formatters.setup({
 	{ command = "buf", filetypes = { "proto" } },
 	{ command = "markdownlint", filetypes = { "markdown", "md" } },
 	{ command = "terraform_fmt", filetypes = { "terraform", "tf" } },
+  { command = "goimports", filetypes = { "go" } },
+  { command = "gofumpt", filetypes = { "go" } },
 })
 
 -- set a linter, this will override the language server linting capabilities (if it exists)
@@ -85,10 +87,36 @@ linters.setup({
 })
 
 -- LSP Server Settings
-
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "gopls" })
 local lsp_manager = require("lvim.lsp.manager")
 
-lsp_manager.setup("golangci_lint_ls")
+-- Golang
+lsp_manager.setup("golangci_lint_ls", {
+  on_init = require("lvim.lsp").common_on_init,
+  capabilities = require("lvim.lsp").common_capabilities(),
+})
+
+lsp_manager.setup("gopls", {
+  on_attach = function(client, bufnr)
+    require("lvim.lsp").common_on_attach(client, bufnr)
+    local _, _ = pcall(vim.lsp.codelens.refresh)
+  end,
+  on_init = require("lvim.lsp").common_on_init,
+  capabilities = require("lvim.lsp").common_capabilities(),
+  settings = {
+    gopls = {
+      usePlaceholders = true,
+      gofumpt = true,
+      codelenses = {
+        generate = false,
+        gc_details = true,
+        test = true,
+        tidy = true,
+      },
+    },
+  },
+})
+
 lsp_manager.setup("bufls")
 lsp_manager.setup("terraform_lsp")
 lsp_manager.setup("terraformls")
