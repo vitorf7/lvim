@@ -1,4 +1,4 @@
-lvim.builtin.which_key.mappings["G"] = {
+lvim.builtin.which_key.mappings["C"] = {
   name = "Go",
   i = { "<cmd>GoInstallDeps<Cr>", "Install Go Dependencies" },
   t = { "<cmd>GoMod tidy<cr>", "Tidy" },

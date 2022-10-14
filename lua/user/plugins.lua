@@ -1,6 +1,9 @@
 -- Additional Plugins
 lvim.plugins = {
+  -- Colorschemes
   "EdenEast/nightfox.nvim",
+  { "catppuccin/nvim", as = "catppuccin" },
+
 	"j-hui/fidget.nvim",
 	"kylechui/nvim-surround",
 	-- "christianchiarulli/harpoon",

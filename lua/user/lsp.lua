@@ -79,9 +79,6 @@ formatters.setup({
 local linters = require("lvim.lsp.null-ls.linters")
 linters.setup({
 	{ command = "buf", filetypes = { "proto" } },
-	-- { command = "phpcs", filetypes = { "php" } },
-	{ command = "selene", filetypes = { "lua" } },
-	-- { command = "luacheck", filetypes = { "lua" } },
 	{ command = "markdownlint", filetypes = { "markdown", "md" } },
 	{ command = "cfn_lint", filetypes = { "yaml", "json" } },
 })
@@ -122,4 +119,3 @@ lsp_manager.setup("terraform_lsp")
 lsp_manager.setup("terraformls")
 lsp_manager.setup("tflint")
 lsp_manager.setup("marksman")
--- lsp_manager.setup("phpactor")
