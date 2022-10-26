@@ -33,6 +33,12 @@ lvim.plugins = {
   "olexsmir/gopher.nvim",
   "leoluz/nvim-dap-go",
 
+  -- Notification
+  "rcarriga/nvim-notify",
+
+  -- Smooth Scrolling
+  "karb94/neoscroll.nvim",
+
 	-- https://github.com/jose-elias-alvarez/typescript.nvim
 	-- "rmagatti/auto-session",
 	-- "rmagatti/session-lens"
