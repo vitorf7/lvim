@@ -10,9 +10,10 @@ lvim.builtin.treesitter.highlight.enabled = true
 lvim.builtin.dap.active = true
 vim.opt.showtabline = 0
 
-lvim.builtin.gitsigns.opts.current_line_blame = true
-lvim.builtin.gitsigns.opts.current_line_blame_opts.delay = 100
-lvim.builtin.gitsigns.opts.current_line_blame_formatter_opts.relative_time = true
+lvim.builtin.gitsigns.active = true
+-- lvim.builtin.gitsigns.opts.current_line_blame = true
+-- lvim.builtin.gitsigns.opts.current_line_blame_opts.delay = 100
+-- lvim.builtin.gitsigns.opts.current_line_blame_formatter_opts.relative_time = true
 
 local options = {
   backup = false,                          -- creates a backup file

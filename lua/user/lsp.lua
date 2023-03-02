@@ -49,14 +49,14 @@ lvim.builtin.treesitter.ensure_installed = {
 
 -- language server in the table below will automatically be installed
 lvim.lsp.installer.setup.ensure_installed = {
-  "sumeko_lua",
+  "lua-language-server",
   "jsonls",
   "html",
   "yamlls",
   "dockerls",
   "bashls",
   "bufls",
-  "golangci-lint-langserver",
+  "golangci_lint_ls",
   "intelephense",
   "phpactor",
   "tflint",

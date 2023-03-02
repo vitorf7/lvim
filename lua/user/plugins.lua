@@ -2,7 +2,7 @@
 lvim.plugins = {
   -- Colorschemes
   "EdenEast/nightfox.nvim",
-  { "catppuccin/nvim", as = "catppuccin" },
+  { "catppuccin/nvim", name = "catppuccin" },
 
 	"j-hui/fidget.nvim",
 	"kylechui/nvim-surround",
@@ -12,7 +12,7 @@ lvim.plugins = {
 	-- "windwp/nvim-spectre",
 	{
 		"0x100101/lab.nvim",
-		run = "cd js && npm ci",
+		build = "cd js && npm ci",
 	},
 	"folke/zen-mode.nvim",
 	"lvimuser/lsp-inlayhints.nvim",
